@@ -5,4 +5,6 @@ Auto-participation in scrap sweepstakes.tf of the second version, implemented on
 
 Реализован только на запросах, а не как проший на селениум.
 
+Зайдите на сайт scrap.tf автоизуйтесь через стим
+
 Заполните куки в файле и все. Скрипт готов к работе
