@@ -3,12 +3,16 @@ from lxml import etree
 import json
 import time
 
+tg_id = "169412"
+token_bot = "5926702328:AAFe-EMcopoF0nQs-I"
+text_bot = "У вас новое уведомление на сайте scrap.tf"
+
 cookies = {
-    '_pbjs_userid_consent_data': '352470770',
+    '_pbjs_userid_consent_data': '3524770',
     '_ga': 'GA1.1.1594540899.1671731491',
-    'scr_session': 'bG9naW5fcmVkaXJlDlkMDcxNGQ1M2ZhZDE0NGIyNDg1ZjhiNDZiN2Y0MzQxNmE3NWUyZjdjOWUyNzdkNWUwMmY5MjQ0ZTNjMWFiNTdmZjkwNTAxZWVlYjI2Njc1NTYxZDdiNDNhMzdjYg%3D%3D',
-    '_ga_CRS9KN52XK': 'GS1.1.1671731.0.0',
-    '__cf_bm': '1W5LVvQDs4NOD9dyG3Ou23k7bCvni3OfcL5ISvEDiHk-16717327399VTXkFIKV4z5CE8XOTnEEtSPXTK83T3QsV2WW8QpXDw=',
+    'scr_session': 'bG9naW5fcmVkaXJlY3R8czoxNzoiaHR0cHM6Ly9zYY0MDdlNDM1ZWNkNTE5MDM2Y2UyM2U2NDM0MmVjMzliNWQyNTZhYmVjNGY5Ijs2NzBmYmM4YWFkMWRjODllOTdkZWNjYmIzMWIyYTlkOTBhMDlkMDcxNGQ1M2ZhZDE0NGIyNDg1ZjhiNDZiN2Y0MzQxNmE3NWUyZjdjOWUyNzdkNWUwMmY5MjQ0ZTNjMWFiNTdmZjkwNTAxZWVlYjI2Njc1NTYxZDdiNDNhMzdjYg%3D%3D',
+    '_ga_CRS9KN52XK': 'GS1.1.167132711.0.0.0',
+    '__cf_bm': '1W5LVvQDs4NOD9dyG3Ou23k7bCvni3OfcL5ISvEDiHk-1671732737-0Y41NDY/rwR0golm2D71vHbElc1y+nXm10Bkhz4/Q3GaSz6eHLonjTjrjv3gC2ivfcJMq99VTXkFIKV4z5CE8XOTnEEtSPXTK83T3QsV2WW8QpXDw='
 }
 
 headers = {
@@ -34,6 +38,12 @@ def parsing():
     tree = etree.XML(html,htmlparser)
     m = 1
     my_list = []
+    try:
+        check_win = tree.xpath('//*[@id="notices-menu"]/a/span/text()')[0]
+        if check_win != '0':
+            requests.post(f"https://api.telegram.org/bot{token_bot}/sendMessage", data = {'chat_id': f'{tg_id}', 'text': f'{text_bot}'})
+    except:
+        print("Данные для бота неверны!")
     while True:
         try:
             pars = tree.xpath(f'//html/body/div[4]/div[2]/div[3]/div[1]/div[{int(m)}]/div[1]/div[1]/a/@href')[0]
@@ -51,10 +61,11 @@ def parsing():
             z = z + 1
             time.sleep(3)
         except Exception as e:
-            print("Я закончил. Ухожу спать на 5 минут")
+            print("Я закончил. Ухожу спать на 15 минут")
             if z == len(my_list):
-                time.sleep(300)
+                time.sleep(900)
                 break
+    parsing()
 
 def enter_raffel(code):
     try:
