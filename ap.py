@@ -2,17 +2,18 @@ import requests
 from lxml import etree
 import json
 import time
+#import my love for anya
 
 tg_id = "169412"
-token_bot = "5926702328:AAFe-EMcopoF0nQs-I"
+token_bot = "5926702328:AAFeF0nQs-I"
 text_bot = "У вас новое уведомление на сайте scrap.tf"
 
 cookies = {
     '_pbjs_userid_consent_data': '3524770',
     '_ga': 'GA1.1.1594540899.1671731491',
-    'scr_session': 'bG9naW5fcmVkaXJlY3R8czoxNzoiaHR0cHM6Ly9zYY0MDdlNDM1ZWNkNTE5MDM2Y2UyM2U2NDM0MmVjMzliNWQyNTZhYmVjNGY5Ijs2NzBmYmM4YWFkMWRjODllOTdkZWNjYmIzMWIyYTlkOTBhMDlkMDcxNGQ1M2ZhZDE0NGIyNDg1ZjhiNDZiN2Y0MzQxNmE3NWUyZjdjOWUyNzdkNWUwMmY5MjQ0ZTNjMWFiNTdmZjkwNTAxZWVlYjI2Njc1NTYxZDdiNDNhMzdjYg%3D%3D',
+    'scr_session': 'bG9naW5fcmVkaXJlY3R8czoxNzoiaHR0cHM6Ly9zYY0MDdlmVjNGY5Ijs2NzBmYmM4YWFkMWRjODllOTdkZWNjYmIzMWIyYTlkOTBhMDlkMDcxNGQ1M2ZhZDE0NGIyNDg1ZjhiNDZiN2Y0MzQxNmE3NWUyZjdjOWUyNzdkNWUwMmY5MjQ0ZTNjMWFiNTdmZjkwNTAxZWVlYjI2Njc1NTYxZDdiNDNhMzdjYg%3D%3D',
     '_ga_CRS9KN52XK': 'GS1.1.167132711.0.0.0',
-    '__cf_bm': '1W5LVvQDs4NOD9dyG3Ou23k7bCvni3OfcL5ISvEDiHk-1671732737-0Y41NDY/rwR0golm2D71vHbElc1y+nXm10Bkhz4/Q3GaSz6eHLonjTjrjv3gC2ivfcJMq99VTXkFIKV4z5CE8XOTnEEtSPXTK83T3QsV2WW8QpXDw='
+    '__cf_bm': '1W5LVvQDs4NOD9dyG3Ou23k7bCvni3OfcL5ISvEDiHk-1671732737-0Y41NDY/rwR0golm2D71vHbElc1y+nXm10Bkhz4/Q3GaSz6eHLonjTjrjv3gC2sV2WW8QpXDw='
 }
 
 headers = {
